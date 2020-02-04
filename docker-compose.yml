@@ -1,0 +1,13 @@
+version: '3.7'
+services:
+  crudpessoas-front:
+    build: luizgustavoob/crudpessoas-front:latest
+    ports:
+      - "80:80"
+    depends_on:
+      - crudpessoas-api
+  crudpessoas-api:
+    build: luizgustavoob/crudpessoas-api:latest
+    ports:
+      - "8086:8086"
+    

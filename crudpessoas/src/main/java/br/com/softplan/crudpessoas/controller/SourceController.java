@@ -22,6 +22,6 @@ public class SourceController {
 			@ApiResponse(code = 500, message = "Foi gerada uma exceção no servidor")
 	})
 	public String getLinkGithub() {
-		return "https://github.com/luizgustavoob/avaliacao-softplan";
+		return "https://github.com/luizgustavoob/teste-crud-pessoas";
 	}
 }
