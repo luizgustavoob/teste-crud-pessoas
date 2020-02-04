@@ -1,0 +1,146 @@
+<div class="m-2">
+  <h4 class="font-weight mb-4">Cadastro de Pessoa</h4>
+
+  <hr/>
+
+  <form [formGroup]="formPessoa" (ngSubmit)="salvar()" autocomplete="off">
+    <div class="form-row">
+      <div class="form-group col-md-2">
+        <label for="id">Código</label>
+        <input type="number"
+          id="id"
+          formControlName="id"
+          class="form-control"
+          readonly>
+      </div>
+
+      <div class="form-group col-md-10">
+        <label for="nome">Nome</label>
+        <input type="text"
+          id="nome"
+          formControlName="nome"
+          class="form-control">
+
+        <app-message-error
+          [control]="formPessoa.get('nome')"
+          error="required"
+          text="Informe o nome da pessoa">
+        </app-message-error>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="cpf">CPF</label>
+        <p-inputMask
+          type="text"
+          id="cpf"
+          formControlName="cpf"
+          mask="999.999.999-99"
+          unmask="true"
+          class="ui-fluid">
+        </p-inputMask>
+
+        <app-message-error
+          [control]="formPessoa.get('cpf')"
+          error="required"
+          text="Informe o CPF da pessoa">
+        </app-message-error>
+
+        <app-message-error
+          [control]="formPessoa.get('cpf')"
+          error="existe"
+          text="CPF já cadastrado">
+        </app-message-error>
+      </div>
+
+      <div class="form-group col-md-3">
+        <label for="dataNascimento">Data Nascimento</label>
+        <p-calendar
+          id="dataNascimento"
+          name="dataNascimento"
+          formControlName="dataNascimento"
+          [locale]="pt"
+          dateFormat="dd/mm/yy"
+          [inline]="false"
+          [readonlyInput]="false"
+          [showIcon]="true"
+          class="ui-fluid">
+        </p-calendar>
+
+        <app-message-error
+          [control]="formPessoa.get('dataNascimento')"
+          error="required"
+          text="Informe a data de nascimento da pessoa">
+        </app-message-error>
+      </div>
+
+      <div class="form-group col-md-5">
+        <label for="email">E-mail</label>
+        <input type="email"
+          id="email"
+          formControlName="email"
+          class="form-control">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="naturalidade">Naturalidade</label>
+        <input type="text"
+          id="naturalidade"
+          formControlName="naturalidade"
+          class="form-control">
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="nacionalidade">Nacionalidade</label>
+        <input type="text"
+          id="nacionalidade"
+          formControlName="nacionalidade"
+          class="form-control">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-12">
+        <p-radioButton
+          name="sexo"
+          formControlName="sexo"
+          [value]="getValueMasculino()"
+          label="Masculino">
+        </p-radioButton>
+
+        <p-radioButton
+          name="sexo"
+          formControlName="sexo"
+          [value]="getValueFeminino()"
+          label="Feminino"
+          class="ml-2">
+        </p-radioButton>
+
+        <p-radioButton
+          name="sexo"
+          formControlName="sexo"
+          [value]="getValueOutro()"
+          label="Outro"
+          class="ml-2">
+        </p-radioButton>
+      </div>
+    </div>
+
+    <div class="mt-2 mb-2">
+      <button
+        type="button"
+        (click)="cancelar()"
+        class="btn btn-secondary mr-2">Cancelar
+      </button>
+
+      <button
+        type="submit"
+        [disabled]="formPessoa.invalid"
+        class="btn btn-primary">Salvar
+      </button>
+    </div>
+  </form>
+</div>
