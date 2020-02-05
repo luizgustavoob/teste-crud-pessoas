@@ -26,10 +26,6 @@ Para o correto funcionamento da aplicação, o único pré-requisito é ter o [D
 ```
 
 ## Execução
-1. _Front-end_
 
-Em seu navegador, digite ```http://localhost:80```
-
-2. _Back-end_
-
-Alguns recursos do _back-end_ também podem ser acessados via navegador, como a documentação da API. Para isso, digite no seu navegador ```http://localhost:8080/swagger-ui.html``` (caso seja solicitado um usuário e uma senha, informar _admin_ para os dois campos).
+Em seu navegador, digite ```http://localhost:80``` e a página inicial da aplicação será apresentada. 
+Para acesso à documentação da API, digite ```http://localhost:8080/swagger-ui.html``` (caso seja solicitado um usuário e uma senha, informar _admin_ para os dois campos).
